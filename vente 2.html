@@ -1,0 +1,2512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCV Marketplace — Société Les Conquérants Victorieux</title>
+
+<style>
+:root{
+    --primary:#ff6a00;
+    --primary-dark:#e85c00;
+    --secondary:#0b5ed7;
+    --dark:#172033;
+    --text:#303846;
+    --muted:#778195;
+    --light:#f5f7fa;
+    --white:#fff;
+    --border:#e5e9f0;
+    --green:#18a558;
+    --red:#e53935;
+    --shadow:0 8px 30px rgba(30,45,70,.09);
+    --radius:14px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fa;
+    color:var(--text);
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    background:#172033;
+    color:#fff;
+    font-size:13px;
+}
+
+.topbar-inner{
+    max-width:1400px;
+    margin:auto;
+    padding:9px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topbar a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:20px;
+    opacity:.9;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 12px rgba(0,0,0,.07);
+}
+
+.header-main{
+    max-width:1400px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:230px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#ff7b00,#ff4d00);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    font-size:20px;
+    box-shadow:0 6px 18px rgba(255,106,0,.3);
+}
+
+.logo-text strong{
+    display:block;
+    font-size:23px;
+    color:var(--dark);
+}
+
+.logo-text span{
+    font-size:11px;
+    color:var(--muted);
+}
+
+.search{
+    flex:1;
+    display:flex;
+    height:48px;
+    border:2px solid var(--primary);
+    border-radius:8px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.search select{
+    border:none;
+    background:#f6f7f9;
+    padding:0 15px;
+    outline:none;
+    color:#555;
+}
+
+.search input{
+    flex:1;
+    border:none;
+    outline:none;
+    padding:0 15px;
+    font-size:15px;
+}
+
+.search button{
+    width:58px;
+    background:var(--primary);
+    color:#fff;
+    font-size:20px;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.header-action{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--dark);
+    background:none;
+}
+
+.header-action .icon{
+    font-size:24px;
+}
+
+.badge{
+    position:absolute;
+    top:-6px;
+    left:17px;
+    min-width:19px;
+    height:19px;
+    border-radius:20px;
+    background:var(--red);
+    color:#fff;
+    font-size:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 4px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav{
+    border-top:1px solid var(--border);
+    background:#fff;
+}
+
+.nav-inner{
+    max-width:1400px;
+    margin:auto;
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+}
+
+.nav-item{
+    padding:14px 18px;
+    color:var(--dark);
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+}
+
+.nav-item:hover{
+    color:var(--primary);
+}
+
+.category-menu{
+    background:var(--primary);
+    color:#fff;
+    padding:14px 20px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    max-width:1400px;
+    margin:22px auto;
+    padding:0 20px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:250px 1fr 250px;
+    gap:15px;
+}
+
+.categories{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.categories h3{
+    padding:18px;
+    border-bottom:1px solid var(--border);
+}
+
+.category{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px 18px;
+    color:var(--text);
+    text-decoration:none;
+    font-size:14px;
+}
+
+.category:hover{
+    background:#fff5ed;
+    color:var(--primary);
+}
+
+.hero-main{
+    min-height:390px;
+    border-radius:var(--radius);
+    overflow:hidden;
+    position:relative;
+    background:
+        linear-gradient(90deg,rgba(7,23,47,.9),rgba(7,23,47,.3)),
+        linear-gradient(135deg,#0b5ed7,#071d3a);
+    color:#fff;
+    padding:50px;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero-content .tag{
+    display:inline-block;
+    background:var(--primary);
+    padding:7px 13px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero-content h1{
+    font-size:46px;
+    line-height:1.08;
+    margin-bottom:18px;
+}
+
+.hero-content p{
+    font-size:17px;
+    line-height:1.6;
+    opacity:.9;
+    margin-bottom:25px;
+}
+
+.btn{
+    padding:12px 20px;
+    border-radius:7px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:#fff;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+    transform:translateY(-1px);
+}
+
+.btn-outline{
+    background:#fff;
+    color:var(--dark);
+}
+
+.hero-side{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.hero-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+    flex:1;
+}
+
+.hero-card h3{
+    margin-bottom:8px;
+}
+
+.hero-card p{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.5;
+}
+
+.hero-card .big{
+    font-size:30px;
+    font-weight:bold;
+    color:var(--primary);
+    margin:10px 0;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:0 20px;
+}
+
+.section{
+    margin:30px 0;
+}
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.section-title{
+    font-size:24px;
+    color:var(--dark);
+}
+
+.section-title span{
+    color:var(--primary);
+}
+
+.view-all{
+    color:var(--secondary);
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* =========================
+   FLASH SALE
+========================= */
+
+.flash{
+    background:linear-gradient(135deg,#ff6a00,#ff3d00);
+    border-radius:var(--radius);
+    padding:20px;
+    color:#fff;
+}
+
+.flash-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.timer{
+    display:flex;
+    gap:7px;
+}
+
+.timer span{
+    background:rgba(0,0,0,.25);
+    padding:7px 9px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+}
+
+.product{
+    background:#fff;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 3px 15px rgba(30,45,70,.06);
+    transition:.25s;
+    position:relative;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.product-image{
+    height:210px;
+    background:#f1f3f7;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.3s;
+}
+
+.product:hover img{
+    transform:scale(1.05);
+}
+
+.product-tag{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:var(--primary);
+    color:#fff;
+    font-size:11px;
+    font-weight:bold;
+    padding:5px 8px;
+    border-radius:4px;
+}
+
+.favorite{
+    position:absolute;
+    right:10px;
+    top:10px;
+    width:34px;
+    height:34px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+}
+
+.favorite.active{
+    color:red;
+}
+
+.product-info{
+    padding:15px;
+}
+
+.product-name{
+    font-size:14px;
+    line-height:1.4;
+    min-height:40px;
+    color:#263142;
+}
+
+.rating{
+    margin:8px 0;
+    color:#ff9d00;
+    font-size:13px;
+}
+
+.rating span{
+    color:#8a93a2;
+}
+
+.price{
+    font-size:19px;
+    color:#d94e00;
+    font-weight:bold;
+}
+
+.old-price{
+    font-size:12px;
+    color:#9aa2af;
+    text-decoration:line-through;
+    margin-left:7px;
+}
+
+.sold{
+    font-size:12px;
+    color:#8992a2;
+    margin-top:6px;
+}
+
+.product-actions{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.add-cart{
+    flex:1;
+    background:var(--primary);
+    color:#fff;
+    padding:9px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.details-btn{
+    width:40px;
+    background:#eef3ff;
+    color:var(--secondary);
+    border-radius:6px;
+}
+
+/* =========================
+   BRANDS / SELLERS
+========================= */
+
+.sellers{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.seller{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    box-shadow:var(--shadow);
+}
+
+.seller-logo{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0b5ed7,#6f9fff);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.seller h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.seller p{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.feature{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:25px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.feature-icon{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.feature h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:#172033;
+    color:#fff;
+    margin-top:50px;
+}
+
+.footer-main{
+    max-width:1400px;
+    margin:auto;
+    padding:45px 20px;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer h3{
+    margin-bottom:18px;
+}
+
+.footer p,
+.footer a{
+    color:#b9c1ce;
+    font-size:13px;
+    line-height:2;
+    text-decoration:none;
+    display:block;
+}
+
+.footer a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding:18px;
+    text-align:center;
+    color:#aab3c1;
+    font-size:12px;
+}
+
+/* =========================
+   CART
+========================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:2000;
+    display:none;
+}
+
+.overlay.active{
+    display:block;
+}
+
+.cart{
+    position:fixed;
+    right:-460px;
+    top:0;
+    width:440px;
+    max-width:95%;
+    height:100%;
+    background:#fff;
+    z-index:2100;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.cart.active{
+    right:0;
+}
+
+.cart-header{
+    padding:20px;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.close{
+    width:35px;
+    height:35px;
+    background:#f0f2f5;
+    border-radius:50%;
+}
+
+.cart-items{
+    flex:1;
+    overflow:auto;
+    padding:15px;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.cart-item img{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.cart-item-info h4{
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.cart-item-price{
+    color:var(--primary);
+    font-weight:bold;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:8px;
+}
+
+.quantity button{
+    width:25px;
+    height:25px;
+    border-radius:4px;
+    background:#edf0f4;
+}
+
+.remove{
+    background:none;
+    color:#e53935;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.cart-footer{
+    padding:20px;
+    border-top:1px solid var(--border);
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+/* =========================
+   MODAL PRODUCT
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:3000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:900px;
+    max-width:100%;
+    max-height:90vh;
+    overflow:auto;
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    right:18px;
+    top:18px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#f0f2f5;
+}
+
+.product-detail{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.detail-image{
+    height:400px;
+    background:#f1f3f7;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.detail-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.detail-info h2{
+    font-size:28px;
+    line-height:1.25;
+    margin:25px 0 12px;
+}
+
+.detail-price{
+    font-size:30px;
+    color:#d94e00;
+    font-weight:bold;
+    margin:18px 0;
+}
+
+.detail-description{
+    color:#687386;
+    line-height:1.7;
+    margin:20px 0;
+}
+
+/* =========================
+   FILTER BAR
+========================= */
+
+.filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.filter-btn{
+    padding:9px 14px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:7px;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:var(--primary);
+    color:#fff;
+    border-color:var(--primary);
+}
+
+/* =========================
+   NOTIFICATION
+========================= */
+
+.toast{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#172033;
+    color:#fff;
+    padding:14px 20px;
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    z-index:5000;
+    transform:translateY(100px);
+    opacity:0;
+    transition:.3s;
+}
+
+.toast.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu{
+    display:none;
+}
+
+@media(max-width:1100px){
+    .hero-grid{
+        grid-template-columns:220px 1fr;
+    }
+
+    .hero-side{
+        display:none;
+    }
+
+    .products{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .sellers{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:800px){
+
+    .topbar-inner{
+        justify-content:center;
+    }
+
+    .topbar-right{
+        display:none;
+    }
+
+    .header-main{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .logo{
+        min-width:auto;
+    }
+
+    .search{
+        order:3;
+        flex-basis:100%;
+    }
+
+    .header-actions{
+        margin-left:auto;
+    }
+
+    .header-action span:not(.icon){
+        display:none;
+    }
+
+    .nav{
+        display:none;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .categories{
+        display:none;
+    }
+
+    .hero-main{
+        min-height:330px;
+        padding:30px;
+    }
+
+    .hero-content h1{
+        font-size:34px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .sellers,
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .product-detail{
+        grid-template-columns:1fr;
+    }
+
+    .detail-image{
+        height:300px;
+    }
+}
+
+@media(max-width:520px){
+
+    .header-main{
+        padding:10px 12px;
+    }
+
+    .logo-text span{
+        display:none;
+    }
+
+    .logo-text strong{
+        font-size:19px;
+    }
+
+    .logo-icon{
+        width:40px;
+        height:40px;
+    }
+
+    .container,
+    .hero{
+        padding:0 12px;
+    }
+
+    .hero-content h1{
+        font-size:28px;
+    }
+
+    .hero-content p{
+        font-size:14px;
+    }
+
+    .section-title{
+        font-size:20px;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .product-image{
+        height:150px;
+    }
+
+    .product-info{
+        padding:10px;
+    }
+
+    .product-name{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:16px;
+    }
+
+    .sellers,
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr;
+    }
+
+    .cart{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="topbar-inner">
+        <div>
+            Bienvenue sur <strong>SCV Marketplace</strong>
+        </div>
+
+        <div class="topbar-right">
+            <a href="#">Centre d'aide</a>
+            <a href="#">Devenir vendeur</a>
+            <a href="#">Télécharger l'application</a>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+
+    <div class="header-main">
+
+        <div class="logo">
+            <div class="logo-icon">SCV</div>
+
+            <div class="logo-text">
+                <strong>SCV</strong>
+                <span>Société Les Conquérants Victorieux</span>
+            </div>
+        </div>
+
+        <div class="search">
+            <select id="searchCategory">
+                <option value="all">Toutes catégories</option>
+                <option value="electronique">Électronique</option>
+                <option value="mode">Mode</option>
+                <option value="maison">Maison</option>
+                <option value="automobile">Automobile</option>
+                <option value="agriculture">Agriculture</option>
+            </select>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Rechercher un produit, une marque ou une boutique..."
+            >
+
+            <button onclick="searchProducts()">🔍</button>
+        </div>
+
+        <div class="header-actions">
+
+            <button class="header-action" onclick="showToast('Bienvenue dans votre espace client')">
+                <span class="icon">👤</span>
+                <span>Compte</span>
+            </button>
+
+            <button class="header-action" onclick="showFavorites()">
+                <span class="icon">♡</span>
+                <span>Favoris</span>
+                <b class="badge" id="favoriteBadge">0</b>
+            </button>
+
+            <button class="header-action" onclick="openCart()">
+                <span class="icon">🛒</span>
+                <span>Panier</span>
+                <b class="badge" id="cartBadge">0</b>
+            </button>
+
+        </div>
+
+    </div>
+
+    <nav class="nav">
+        <div class="nav-inner">
+
+            <a class="nav-item category-menu" href="#categories">
+                ☰ Toutes les catégories
+            </a>
+
+            <a class="nav-item" href="#accueil">Accueil</a>
+            <a class="nav-item" href="#promotions">🔥 Promotions</a>
+            <a class="nav-item" href="#produits">Produits</a>
+            <a class="nav-item" href="#boutiques">Boutiques</a>
+            <a class="nav-item" href="#services">Services</a>
+            <a class="nav-item" href="#vendeur">Devenir vendeur</a>
+
+        </div>
+    </nav>
+
+</header>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+
+    <div class="hero-grid">
+
+        <div class="categories" id="categories">
+
+            <h3>🛍️ Catégories</h3>
+
+            <a class="category" href="#" onclick="filterCategory('electronique')">
+                📱 Électronique
+            </a>
+
+            <a class="category" href="#" onclick="filterCategory('mode')">
+                👕 Mode & Vêtements
+            </a>
+
+            <a class="category" href="#" onclick="filterCategory('maison')">
+                🏠 Maison & Cuisine
+            </a>
+
+            <a class="category" href="#" onclick="filterCategory('automobile')">
+                🚗 Automobile
+            </a>
+
+            <a class="category" href="#" onclick="filterCategory('agriculture')">
+                🌾 Agriculture
+            </a>
+
+            <a class="category" href="#" onclick="filterCategory('informatique')">
+                💻 Informatique
+            </a>
+
+            <a class="category" href="#" onclick="filterCategory('beaute')">
+                💄 Beauté
+            </a>
+
+            <a class="category" href="#" onclick="filterCategory('autres')">
+                📦 Autres produits
+            </a>
+
+        </div>
+
+        <div class="hero-main">
+
+            <div class="hero-content">
+
+                <span class="tag">SCV MARKETPLACE</span>
+
+                <h1>
+                    Tout ce dont vous avez besoin,
+                    au même endroit.
+                </h1>
+
+                <p>
+                    Découvrez des milliers de produits proposés par
+                    des vendeurs et entreprises. Comparez, choisissez
+                    et commandez facilement.
+                </p>
+
+                <button class="btn btn-primary" onclick="scrollToProducts()">
+                    Découvrir les produits →
+                </button>
+
+                <button class="btn btn-outline" onclick="showToast('La plateforme vendeur sera bientôt disponible')">
+                    Devenir vendeur
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-side">
+
+            <div class="hero-card">
+                <h3>⚡ Vente Flash</h3>
+                <div class="big">-50%</div>
+                <p>
+                    Profitez de nos meilleures offres
+                    avant leur expiration.
+                </p>
+            </div>
+
+            <div class="hero-card">
+                <h3>🚚 Livraison</h3>
+                <div class="big">Rapide</div>
+                <p>
+                    Livraison disponible selon votre
+                    zone géographique.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FLASH SALE -->
+<div class="container">
+
+<section class="section" id="promotions">
+
+    <div class="flash">
+
+        <div class="flash-header">
+
+            <div>
+                <h2>🔥 Ventes Flash</h2>
+                <p>Les offres les plus intéressantes du moment</p>
+            </div>
+
+            <div class="timer">
+                <span id="hours">05</span>
+                :
+                <span id="minutes">59</span>
+                :
+                <span id="seconds">59</span>
+            </div>
+
+        </div>
+
+        <div class="products" id="flashProducts"></div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="section" id="produits">
+
+    <div class="section-header">
+
+        <h2 class="section-title">
+            Produits <span>populaires</span>
+        </h2>
+
+        <a href="#" class="view-all" onclick="resetProducts()">
+            Voir tout →
+        </a>
+
+    </div>
+
+    <div class="filters">
+
+        <button class="filter-btn active" onclick="filterProducts('all',this)">
+            Tous
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('electronique',this)">
+            Électronique
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('mode',this)">
+            Mode
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('maison',this)">
+            Maison
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('automobile',this)">
+            Automobile
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('agriculture',this)">
+            Agriculture
+        </button>
+
+    </div>
+
+    <div class="products" id="products"></div>
+
+</section>
+
+<!-- SELLERS -->
+<section class="section" id="boutiques">
+
+    <div class="section-header">
+        <h2 class="section-title">
+            🏪 Boutiques <span>recommandées</span>
+        </h2>
+
+        <a href="#" class="view-all">
+            Toutes les boutiques →
+        </a>
+    </div>
+
+    <div class="sellers">
+
+        <div class="seller">
+            <div class="seller-logo">TD</div>
+            <div>
+                <h3>Tech Digital</h3>
+                <p>Électronique • ★ 4.8</p>
+                <p>Ouagadougou</p>
+            </div>
+        </div>
+
+        <div class="seller">
+            <div class="seller-logo">AF</div>
+            <div>
+                <h3>Afrique Fashion</h3>
+                <p>Mode • ★ 4.7</p>
+                <p>Bobo-Dioulasso</p>
+            </div>
+        </div>
+
+        <div class="seller">
+            <div class="seller-logo">MA</div>
+            <div>
+                <h3>Maison Africa</h3>
+                <p>Maison • ★ 4.9</p>
+                <p>Ouagadougou</p>
+            </div>
+        </div>
+
+        <div class="seller">
+            <div class="seller-logo">AG</div>
+            <div>
+                <h3>Agri Burkina</h3>
+                <p>Agriculture • ★ 4.8</p>
+                <p>Koudougou</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="services">
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h3>Achat sécurisé</h3>
+            <p>
+                Nous mettons en place des solutions
+                pour sécuriser vos achats.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🚚</div>
+            <h3>Livraison</h3>
+            <p>
+                Des solutions de livraison adaptées
+                à vos commandes.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💬</div>
+            <h3>Support client</h3>
+            <p>
+                Une assistance pour vous accompagner
+                dans vos achats.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🏪</div>
+            <h3>Vendeurs locaux</h3>
+            <p>
+                Découvrez des entreprises et vendeurs
+                présents au Burkina Faso.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-main">
+
+        <div>
+            <h3>SCV Marketplace</h3>
+
+            <p>
+                Société Les Conquérants Victorieux.
+                Une plateforme commerciale moderne
+                permettant aux vendeurs et acheteurs
+                de se rencontrer.
+            </p>
+
+            <p>📍 Burkina Faso</p>
+            <p>📞 +226 XX XX XX XX</p>
+            <p>✉️ contact@scv-marketplace.com</p>
+        </div>
+
+        <div>
+            <h3>Marketplace</h3>
+            <a href="#produits">Tous les produits</a>
+            <a href="#promotions">Promotions</a>
+            <a href="#boutiques">Boutiques</a>
+            <a href="#">Nouveautés</a>
+        </div>
+
+        <div>
+            <h3>Clients</h3>
+            <a href="#">Mon compte</a>
+            <a href="#">Mes commandes</a>
+            <a href="#">Mes favoris</a>
+            <a href="#">Centre d'aide</a>
+        </div>
+
+        <div id="vendeur">
+            <h3>Vendeurs</h3>
+            <a href="#">Devenir vendeur</a>
+            <a href="#">Espace vendeur</a>
+            <a href="#">Conditions vendeurs</a>
+            <a href="#">Assistance</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 SCV — Société Les Conquérants Victorieux. Tous droits réservés.
+    </div>
+
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+<!-- CART -->
+<aside class="cart" id="cart">
+
+    <div class="cart-header">
+        <h2>🛒 Mon panier</h2>
+        <button class="close" onclick="closeCart()">✕</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <p style="text-align:center;color:#888;margin-top:50px;">
+            Votre panier est vide.
+        </p>
+    </div>
+
+    <div class="cart-footer">
+
+        <div class="total">
+            <span>Total</span>
+            <span id="cartTotal">0 FCFA</span>
+        </div>
+
+        <button
+            class="btn btn-primary"
+            style="width:100%;"
+            onclick="checkout()">
+            Passer la commande
+        </button>
+
+    </div>
+
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="productModal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeProductModal()">
+            ✕
+        </button>
+
+        <div class="product-detail">
+
+            <div class="detail-image">
+                <img id="detailImage" src="" alt="">
+            </div>
+
+            <div class="detail-info">
+
+                <div class="rating" id="detailRating"></div>
+
+                <h2 id="detailName"></h2>
+
+                <div class="detail-price" id="detailPrice"></div>
+
+                <p class="detail-description" id="detailDescription"></p>
+
+                <p>
+                    <strong>Vendeur :</strong>
+                    <span id="detailSeller"></span>
+                </p>
+
+                <p style="margin-top:10px;">
+                    <strong>Disponibilité :</strong>
+                    <span style="color:#18a558;">
+                        En stock
+                    </span>
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    style="width:100%;margin-top:25px;"
+                    id="detailCartButton">
+                    🛒 Ajouter au panier
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+
+/* =====================================
+   DONNEES PRODUITS
+===================================== */
+
+const products = [
+
+    {
+        id:1,
+        name:"Smartphone Android Pro 256GB",
+        category:"electronique",
+        price:149000,
+        oldPrice:179000,
+        image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800",
+        rating:4.8,
+        sold:126,
+        seller:"Tech Digital",
+        tag:"PROMO",
+        description:"Smartphone moderne avec grand écran, appareil photo haute résolution et stockage 256GB."
+    },
+
+    {
+        id:2,
+        name:"Ordinateur portable professionnel",
+        category:"informatique",
+        price:385000,
+        oldPrice:450000,
+        image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800",
+        rating:4.9,
+        sold:87,
+        seller:"Tech Digital",
+        tag:"BEST",
+        description:"Ordinateur portable performant adapté au travail professionnel, aux études et à la programmation."
+    },
+
+    {
+        id:3,
+        name:"Montre connectée intelligente",
+        category:"electronique",
+        price:35000,
+        oldPrice:45000,
+        image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+        rating:4.5,
+        sold:243,
+        seller:"Tech Digital",
+        tag:"PROMO",
+        description:"Montre connectée avec suivi sportif, notifications et nombreuses fonctionnalités intelligentes."
+    },
+
+    {
+        id:4,
+        name:"Chaussures homme premium",
+        category:"mode",
+        price:28000,
+        oldPrice:35000,
+        image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",
+        rating:4.7,
+        sold:352,
+        seller:"Afrique Fashion",
+        tag:"TOP",
+        description:"Chaussures élégantes et confortables adaptées aux sorties et aux occasions professionnelles."
+    },
+
+    {
+        id:5,
+        name:"Sac à main femme élégant",
+        category:"mode",
+        price:22000,
+        oldPrice:30000,
+        image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800",
+        rating:4.6,
+        sold:195,
+        seller:"Afrique Fashion",
+        tag:"PROMO",
+        description:"Sac élégant et pratique avec plusieurs compartiments."
+    },
+
+    {
+        id:6,
+        name:"Canapé moderne 5 places",
+        category:"maison",
+        price:350000,
+        oldPrice:420000,
+        image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800",
+        rating:4.8,
+        sold:31,
+        seller:"Maison Africa",
+        tag:"NOUVEAU",
+        description:"Canapé moderne confortable conçu pour apporter élégance et confort à votre intérieur."
+    },
+
+    {
+        id:7,
+        name:"Mixeur électrique professionnel",
+        category:"maison",
+        price:32000,
+        oldPrice:42000,
+        image:"https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=800",
+        rating:4.5,
+        sold:167,
+        seller:"Maison Africa",
+        tag:"PROMO",
+        description:"Mixeur puissant adapté à la cuisine familiale et professionnelle."
+    },
+
+    {
+        id:8,
+        name:"Pneu automobile 205/55 R16",
+        category:"automobile",
+        price:65000,
+        oldPrice:78000,
+        image:"https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800",
+        rating:4.7,
+        sold:78,
+        seller:"Auto Burkina",
+        tag:"PROMO",
+        description:"Pneu automobile de qualité pour une excellente adhérence et une bonne durée de vie."
+    },
+
+    {
+        id:9,
+        name:"Batterie automobile 12V",
+        category:"automobile",
+        price:55000,
+        oldPrice:70000,
+        image:"https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800",
+        rating:4.6,
+        sold:93,
+        seller:"Auto Burkina",
+        tag:"TOP",
+        description:"Batterie automobile fiable adaptée à plusieurs modèles de véhicules."
+    },
+
+    {
+        id:10,
+        name:"Pulvérisateur agricole 20L",
+        category:"agriculture",
+        price:18000,
+        oldPrice:23000,
+        image:"https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800",
+        rating:4.4,
+        sold:121,
+        seller:"Agri Burkina",
+        tag:"PROMO",
+        description:"Pulvérisateur agricole robuste de 20 litres."
+    },
+
+    {
+        id:11,
+        name:"Kit solaire domestique",
+        category:"electronique",
+        price:275000,
+        oldPrice:320000,
+        image:"https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800",
+        rating:4.9,
+        sold:64,
+        seller:"Solar Energy BF",
+        tag:"BEST",
+        description:"Kit solaire destiné à l'alimentation des équipements domestiques essentiels."
+    },
+
+    {
+        id:12,
+        name:"Clavier mécanique RGB",
+        category:"informatique",
+        price:28000,
+        oldPrice:35000,
+        image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800",
+        rating:4.7,
+        sold:114,
+        seller:"Tech Digital",
+        tag:"NOUVEAU",
+        description:"Clavier mécanique RGB idéal pour la programmation et le gaming."
+    },
+
+    {
+        id:13,
+        name:"Télévision Smart TV 55 pouces",
+        category:"electronique",
+        price:295000,
+        oldPrice:350000,
+        image:"https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800",
+        rating:4.8,
+        sold:54,
+        seller:"Tech Digital",
+        tag:"PROMO",
+        description:"Smart TV 55 pouces avec haute résolution et fonctionnalités connectées."
+    },
+
+    {
+        id:14,
+        name:"Robe africaine élégante",
+        category:"mode",
+        price:30000,
+        oldPrice:40000,
+        image:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800",
+        rating:4.8,
+        sold:210,
+        seller:"Afrique Fashion",
+        tag:"TOP",
+        description:"Robe élégante inspirée du style africain contemporain."
+    },
+
+    {
+        id:15,
+        name:"Table de bureau professionnelle",
+        category:"maison",
+        price:85000,
+        oldPrice:100000,
+        image:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800",
+        rating:4.6,
+        sold:46,
+        seller:"Maison Africa",
+        tag:"NOUVEAU",
+        description:"Table de bureau moderne adaptée aux espaces professionnels et domestiques."
+    }
+
+];
+
+
+/* =====================================
+   VARIABLES
+===================================== */
+
+let cart = [];
+let favorites = [];
+let currentProducts = [...products];
+
+
+/* =====================================
+   FORMATAGE PRIX
+===================================== */
+
+function formatPrice(price){
+
+    return new Intl.NumberFormat("fr-FR").format(price) + " FCFA";
+
+}
+
+
+/* =====================================
+   AFFICHER PRODUITS
+===================================== */
+
+function displayProducts(list = currentProducts){
+
+    const container = document.getElementById("products");
+
+    if(!list.length){
+
+        container.innerHTML = `
+            <div style="grid-column:1/-1;background:#fff;padding:50px;text-align:center;border-radius:12px;">
+                <div style="font-size:50px;">🔍</div>
+                <h3>Aucun produit trouvé</h3>
+                <p style="color:#888;margin-top:10px;">
+                    Essayez une autre recherche.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML = list.map(productCard).join("");
+
+}
+
+
+/* =====================================
+   CARTE PRODUIT
+===================================== */
+
+function productCard(product){
+
+    const isFavorite = favorites.includes(product.id);
+
+    return `
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    loading="lazy"
+                >
+
+                <span class="product-tag">
+                    ${product.tag}
+                </span>
+
+                <button
+                    class="favorite ${isFavorite ? "active" : ""}"
+                    onclick="toggleFavorite(${product.id})"
+                >
+                    ${isFavorite ? "♥" : "♡"}
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+                <div class="rating">
+                    ★★★★★
+                    <span> ${product.rating}</span>
+                </div>
+
+                <div>
+                    <span class="price">
+                        ${formatPrice(product.price)}
+                    </span>
+
+                    <span class="old-price">
+                        ${formatPrice(product.oldPrice)}
+                    </span>
+                </div>
+
+                <div class="sold">
+                    ${product.sold} vendus • ${product.seller}
+                </div>
+
+                <div class="product-actions">
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart(${product.id})"
+                    >
+                        🛒 Ajouter
+                    </button>
+
+                    <button
+                        class="details-btn"
+                        onclick="showProduct(${product.id})"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================
+   FLASH PRODUCTS
+===================================== */
+
+function displayFlashProducts(){
+
+    const container = document.getElementById("flashProducts");
+
+    const flashProducts = products
+        .filter(p => p.tag === "PROMO")
+        .slice(0,5);
+
+    container.innerHTML = flashProducts.map(productCard).join("");
+
+}
+
+
+/* =====================================
+   PANIER
+===================================== */
+
+function addToCart(id){
+
+    const product = products.find(p => p.id === id);
+
+    if(!product) return;
+
+    const existing = cart.find(item => item.id === id);
+
+    if(existing){
+        existing.quantity++;
+    }else{
+        cart.push({
+            ...product,
+            quantity:1
+        });
+    }
+
+    updateCart();
+
+    showToast("✓ Produit ajouté au panier");
+
+}
+
+
+function updateCart(){
+
+    const container = document.getElementById("cartItems");
+
+    const badge = document.getElementById("cartBadge");
+
+    const count = cart.reduce(
+        (sum,item)=>sum+item.quantity,
+        0
+    );
+
+    badge.textContent = count;
+
+    if(cart.length === 0){
+
+        container.innerHTML = `
+            <p style="text-align:center;color:#888;margin-top:50px;">
+                🛒<br><br>
+                Votre panier est vide.
+            </p>
+        `;
+
+        document.getElementById("cartTotal").textContent =
+            "0 FCFA";
+
+        return;
+    }
+
+    let total = 0;
+
+    container.innerHTML = cart.map(item => {
+
+        total += item.price * item.quantity;
+
+        return `
+
+            <div class="cart-item">
+
+                <img src="${item.image}" alt="">
+
+                <div class="cart-item-info">
+
+                    <h4>${item.name}</h4>
+
+                    <div class="cart-item-price">
+                        ${formatPrice(item.price)}
+                    </div>
+
+                    <div class="quantity">
+
+                        <button onclick="changeQuantity(${item.id},-1)">
+                            −
+                        </button>
+
+                        <strong>${item.quantity}</strong>
+
+                        <button onclick="changeQuantity(${item.id},1)">
+                            +
+                        </button>
+
+                    </div>
+
+                    <button
+                        class="remove"
+                        onclick="removeFromCart(${item.id})"
+                    >
+                        Supprimer
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }).join("");
+
+    document.getElementById("cartTotal").textContent =
+        formatPrice(total);
+
+}
+
+
+function changeQuantity(id,change){
+
+    const item = cart.find(item=>item.id===id);
+
+    if(!item) return;
+
+    item.quantity += change;
+
+    if(item.quantity <= 0){
+
+        cart = cart.filter(item=>item.id!==id);
+
+    }
+
+    updateCart();
+
+}
+
+
+function removeFromCart(id){
+
+    cart = cart.filter(item=>item.id!==id);
+
+    updateCart();
+
+    showToast("Produit retiré du panier");
+
+}
+
+
+/* =====================================
+   OUVRIR PANIER
+===================================== */
+
+function openCart(){
+
+    document.getElementById("cart").classList.add("active");
+
+    document.getElementById("overlay").classList.add("active");
+
+}
+
+
+function closeCart(){
+
+    document.getElementById("cart").classList.remove("active");
+
+    document.getElementById("overlay").classList.remove("active");
+
+}
+
+
+/* =====================================
+   FAVORIS
+===================================== */
+
+function toggleFavorite(id){
+
+    if(favorites.includes(id)){
+
+        favorites = favorites.filter(x=>x!==id);
+
+        showToast("Retiré des favoris");
+
+    }else{
+
+        favorites.push(id);
+
+        showToast("♥ Ajouté aux favoris");
+
+    }
+
+    document.getElementById("favoriteBadge").textContent =
+        favorites.length;
+
+    displayProducts(currentProducts);
+
+}
+
+
+function showFavorites(){
+
+    const list = products.filter(
+        p=>favorites.includes(p.id)
+    );
+
+    if(!list.length){
+
+        showToast("Vous n'avez aucun favori");
+
+        return;
+    }
+
+    currentProducts = list;
+
+    displayProducts(list);
+
+    document
+        .getElementById("produits")
+        .scrollIntoView();
+
+}
+
+
+/* =====================================
+   FILTRE CATEGORIE
+===================================== */
+
+function filterProducts(category,button){
+
+    if(category==="all"){
+
+        currentProducts=[...products];
+
+    }else{
+
+        currentProducts=products.filter(
+            p=>p.category===category
+        );
+
+    }
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn=>btn.classList.remove("active"));
+
+    if(button){
+        button.classList.add("active");
+    }
+
+    displayProducts(currentProducts);
+
+}
+
+
+function filterCategory(category){
+
+    filterProducts(category,null);
+
+    document
+        .getElementById("produits")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =====================================
+   REINITIALISER
+===================================== */
+
+function resetProducts(){
+
+    currentProducts=[...products];
+
+    displayProducts();
+
+}
+
+
+/* =====================================
+   RECHERCHE
+===================================== */
+
+function searchProducts(){
+
+    const query =
+        document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const category =
+        document
+        .getElementById("searchCategory")
+        .value;
+
+    let result = products.filter(product=>{
+
+        const matchesText =
+            product.name.toLowerCase().includes(query) ||
+            product.seller.toLowerCase().includes(query) ||
+            product.description.toLowerCase().includes(query);
+
+        const matchesCategory =
+            category==="all" ||
+            product.category===category;
+
+        return matchesText && matchesCategory;
+
+    });
+
+    currentProducts=result;
+
+    displayProducts(result);
+
+    document
+        .getElementById("produits")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+document
+.getElementById("searchInput")
+.addEventListener("keydown",function(event){
+
+    if(event.key==="Enter"){
+        searchProducts();
+    }
+
+});
+
+
+/* =====================================
+   DETAILS PRODUIT
+===================================== */
+
+function showProduct(id){
+
+    const product = products.find(p=>p.id===id);
+
+    if(!product) return;
+
+    document.getElementById("detailImage").src =
+        product.image;
+
+    document.getElementById("detailName").textContent =
+        product.name;
+
+    document.getElementById("detailPrice").textContent =
+        formatPrice(product.price);
+
+    document.getElementById("detailDescription").textContent =
+        product.description;
+
+    document.getElementById("detailSeller").textContent =
+        product.seller;
+
+    document.getElementById("detailRating").innerHTML =
+        "★★★★★ " + product.rating;
+
+    document.getElementById("detailCartButton").onclick =
+        function(){
+            addToCart(product.id);
+            closeProductModal();
+        };
+
+    document
+        .getElementById("productModal")
+        .classList.add("active");
+
+}
+
+
+function closeProductModal(){
+
+    document
+        .getElementById("productModal")
+        .classList.remove("active");
+
+}
+
+
+/* =====================================
+   CHECKOUT
+===================================== */
+
+function checkout(){
+
+    if(cart.length===0){
+
+        showToast("Votre panier est vide");
+
+        return;
+    }
+
+    const total = cart.reduce(
+        (sum,item)=>sum+item.price*item.quantity,
+        0
+    );
+
+    alert(
+        "COMMANDE SCV\n\n"+
+        "Total : "+formatPrice(total)+
+        "\n\nCette version est une démonstration."+
+        "\nLe paiement pourra être connecté ensuite à un véritable système."
+    );
+
+}
+
+
+/* =====================================
+   TOAST
+===================================== */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent=message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer=setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* =====================================
+   SCROLL PRODUITS
+===================================== */
+
+function scrollToProducts(){
+
+    document
+        .getElementById("produits")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =====================================
+   COMPTEUR VENTE FLASH
+===================================== */
+
+let totalSeconds = 5*60*60+59*60+59;
+
+function updateTimer(){
+
+    let hours =
+        Math.floor(totalSeconds/3600);
+
+    let minutes =
+        Math.floor((totalSeconds%3600)/60);
+
+    let seconds =
+        totalSeconds%60;
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+
+    if(totalSeconds>0){
+        totalSeconds--;
+    }else{
+        totalSeconds=5*60*60+59*60+59;
+    }
+
+}
+
+
+/* =====================================
+   INITIALISATION
+===================================== */
+
+displayProducts();
+
+displayFlashProducts();
+
+updateCart();
+
+updateTimer();
+
+setInterval(updateTimer,1000);
+
+
+/* =====================================
+   FERMETURE MODALE
+===================================== */
+
+document
+.getElementById("productModal")
+.addEventListener("click",function(event){
+
+    if(event.target===this){
+        closeProductModal();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
