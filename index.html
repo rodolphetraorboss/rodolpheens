@@ -1697,6 +1697,200 @@ footer{
 
 }
 
+
+/* =========================================================
+   AJOUT : VENTE DE VEHICULES
+========================================================= */
+.vehicles-section{
+    background:#f4f7fb;
+}
+.vehicles-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:35px;
+}
+.vehicle-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+    transition:var(--transition);
+}
+.vehicle-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 45px rgba(0,0,0,.15);
+}
+.vehicle-image{
+    height:230px;
+    overflow:hidden;
+}
+.vehicle-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+.vehicle-card:hover .vehicle-image img{
+    transform:scale(1.06);
+}
+.vehicle-content{
+    padding:24px;
+}
+.vehicle-content h3{
+    color:var(--bleu);
+    margin-bottom:12px;
+    font-size:22px;
+}
+.vehicle-info{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:16px;
+}
+.vehicle-info span{
+    background:#eef5fb;
+    color:var(--bleu);
+    padding:7px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+.vehicle-price{
+    color:var(--rouge);
+    font-size:19px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+.vehicle-whatsapp{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:var(--transition);
+}
+.vehicle-whatsapp:hover{
+    background:#1ebe5d;
+    transform:scale(1.02);
+}
+
+/* =========================================================
+   AJOUT : TRES GROS BOUTON WHATSAPP FLOTTANT
+========================================================= */
+.whatsapp-float{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    background:#25D366;
+    color:white;
+    padding:17px 28px;
+    border-radius:60px;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 10px 35px rgba(37,211,102,.55);
+    animation:whatsappPulse 2s infinite;
+    transition:var(--transition);
+}
+.whatsapp-float:hover{
+    transform:scale(1.06);
+    background:#1ebe5d;
+}
+.whatsapp-float-icon{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:white;
+    color:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+}
+@keyframes whatsappPulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,.65);}
+    70%{box-shadow:0 0 0 22px rgba(37,211,102,0);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+@media(max-width:1000px){
+    .vehicles-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:700px){
+    .vehicles-grid{grid-template-columns:1fr;}
+    .whatsapp-float{
+        right:12px;
+        bottom:12px;
+        padding:12px 16px;
+        font-size:13px;
+    }
+    .whatsapp-float-icon{
+        width:45px;
+        height:45px;
+        font-size:23px;
+    }
+}
+
+
+/* =========================================================
+   AJUSTEMENT DU MENU : RETOUR A UNE DISPOSITION EQUILIBREE
+========================================================= */
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:28px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:22px;
+    flex:1;
+    white-space:nowrap;
+}
+
+nav a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 2px;
+    white-space:nowrap;
+}
+
+nav .nav-button{
+    padding:12px 20px;
+    margin-left:4px;
+}
+
+/* Le nouvel onglet reste compact pour ne pas déplacer les onglets existants */
+nav a[href="#vehicules"]{
+    padding:10px 8px;
+}
+
+@media(max-width:1150px){
+    nav{
+        gap:14px;
+    }
+
+    nav a{
+        font-size:13px;
+    }
+
+    nav .nav-button{
+        padding:10px 16px;
+    }
+}
+
 </style>
 
 </head>
@@ -1776,6 +1970,8 @@ footer{
             <a href="#services">Nos Services</a>
 
             <a href="#corridors">Nos Corridors</a>
+
+            <a href="#vehicules">🚗 Vente de véhicules</a>
 
             <a href="#dedouanement">Dédouanement</a>
 
@@ -2268,6 +2464,91 @@ footer{
 
 </section>
 
+
+
+<!-- =========================================================
+     AJOUT : VENTE DE VEHICULES
+========================================================= -->
+<section id="vehicules" class="vehicles-section">
+
+    <div class="container">
+
+        <span class="section-tag">
+            Vente de véhicules
+        </span>
+
+        <h2 class="section-title">
+            Nos véhicules disponibles
+        </h2>
+
+        <p class="section-description">
+            Découvrez notre sélection de véhicules disponibles. Contactez-nous directement sur WhatsApp pour connaître le prix et la disponibilité.
+        </p>
+
+        <div class="vehicles-grid">
+
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="vehicule1.jpg" alt="Toyota Vios">
+                </div>
+                <div class="vehicle-content">
+                    <h3>🚗 Toyota Vios</h3>
+                    <div class="vehicle-info">
+                        <span>📅 Année : 2018</span>
+                        <span>⚙️ Automatique</span>
+                        <span>⛽ Essence</span>
+                    </div>
+                    <div class="vehicle-price">Prix : Sur demande</div>
+                    <a class="vehicle-whatsapp" target="_blank"
+                       href="https://wa.me/22676591674?text=Bonjour%20SCV%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20Toyota%20Vios.">
+                        💬 JE SUIS INTÉRESSÉ SUR WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="vehicule2.jpg" alt="Toyota Corolla">
+                </div>
+                <div class="vehicle-content">
+                    <h3>🚘 Toyota Corolla</h3>
+                    <div class="vehicle-info">
+                        <span>📅 Année : 2020</span>
+                        <span>⚙️ Automatique</span>
+                        <span>⛽ Essence</span>
+                    </div>
+                    <div class="vehicle-price">Prix : Sur demande</div>
+                    <a class="vehicle-whatsapp" target="_blank"
+                       href="https://wa.me/22676591674?text=Bonjour%20SCV%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20Toyota%20Corolla.">
+                        💬 JE SUIS INTÉRESSÉ SUR WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="vehicule3.jpg" alt="Hyundai Tucson">
+                </div>
+                <div class="vehicle-content">
+                    <h3>🚙 Hyundai Tucson</h3>
+                    <div class="vehicle-info">
+                        <span>📅 Année : 2021</span>
+                        <span>⚙️ Automatique</span>
+                        <span>⛽ Essence</span>
+                    </div>
+                    <div class="vehicle-price">Prix : Sur demande</div>
+                    <a class="vehicle-whatsapp" target="_blank"
+                       href="https://wa.me/22676591674?text=Bonjour%20SCV%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Hyundai%20Tucson.">
+                        💬 JE SUIS INTÉRESSÉ SUR WHATSAPP
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- =========================================================
      CORRIDORS
@@ -3689,6 +3970,24 @@ footer{
 <script>
     // Votre JavaScript existant
 </script>
+
+
+<!-- =========================================================
+     AJOUT : WHATSAPP DIRECT
+========================================================= -->
+<a class="whatsapp-float"
+   href="https://wa.me/22676591674?text=Bonjour%20SCV%2C%20je%20souhaite%20avoir%20plus%20d%27informations."
+   target="_blank"
+   aria-label="Contacter SCV sur WhatsApp">
+
+    <span class="whatsapp-float-icon">💬</span>
+
+    <span>
+        WHATSAPP<br>
+        <small style="font-size:12px;font-weight:normal;">Cliquez pour nous écrire</small>
+    </span>
+
+</a>
 
 </body>
 </html>
